@@ -1,0 +1,318 @@
+// =========
+// Variables
+// =========
+
+$color1: #2A2F70
+$color2: #008CB4
+$sprite: 'http://fs.bvodola.webfactional.com/image/9b183350159774022ada7858b59dc7eb1473863068963.png'
+
+// Media Breakpoints
+$lg-min: 1200px
+$md-max: 1199px 
+$md-min: 992px
+$sm-max: 991px
+$sm-min: 768px
+$xs-max: 767px
+$xs-min: 480px
+$mb-max: 479px
+$mb-min: 320px
+$rt-max: 319px
+
+// =============
+// Media Queries
+// =============
+
+=rt-mb($selector)
+	@media (max-width: #{$mb-max})
+		#{$selector}
+			@content
+
+=xs-sm($selector)
+	@media (max-width: #{$sm-max})
+		#{$selector}
+			@content
+
+=xs-md($selector)
+	@media (max-width: #{$md-max})
+		#{$selector}
+			@content
+
+=xs($selector)
+	@media (max-width: #{$xs-max})
+		#{$selector}
+			@content
+
+=sm($selector)
+	@media (min-width: #{$sm-min}) and (max-width: #{$sm-max})
+		#{$selector}
+			@content
+
+=md($selector)
+	@media (min-width: #{$md-min}) and (max-width: #{$md-max})
+		#{$selector}
+			@content
+
+=lg($selector)
+	@media (min-width: #{$lg-min})
+		#{$selector}
+			@content
+
+// =====================
+// Placeholder Color Fix
+// =====================
+
+=placeholder
+	::-webkit-input-placeholder 
+		@content
+	
+	:-moz-placeholder
+		@content
+	
+	::-moz-placeholder
+		@content
+	
+	:-ms-input-placeholder   
+		@content
+
++placeholder
+	color: #fff
+
+
+// ==================
+// Select Style Reset
+// ==================
+
+.three-steps
+	select
+		-webkit-appearance: none
+		-moz-appearance: none
+		appearance: none
+
+// ==================
+// Landing Page Style
+// ==================
+
+.three-steps
+	.top
+		text-align: center
+
+		h1
+			color: $color2
+			font-style: italic
+			font-size: 16px
+			font-weight: bold
+
+		.logo
+			width: 100px
+			display: inline-block
+
+		
+
+	header
+		background: $color2
+		color: #fff
+		margin-top: 140px
+
+		.container
+			height: 320px
+		
+		+xs-md('.container')
+			height: auto
+
+		h2
+			font-size: 17px
+			font-style: italic
+			text-align: left
+
+			strong
+				font-size: 30px
+		
+		+xs('h2')
+			margin-top: 50px
+			text-align: center
+
+		+rt-mb('h2')
+			margin-top: 70px 
+
+		.hero-shot
+			position: relative
+			top: -140px
+			margin-bottom: -130px
+			text-align: center
+			
+			img
+				max-width: 100%
+				height: auto
+		
+		+rt-mb('.hero-shot')
+			top: -110px
+
+		+xs-md('.box')
+			height: auto !important
+			padding: 20px !important
+		
+		.box
+			color: #000
+			background: #f2f2f2
+			padding: 20px 130px
+			border-radius: 4px
+			border-bottom: 1px solid #666
+			margin-bottom: 30px
+			height: 180px
+
+			+sm('.col-lg-8')
+				padding: 30px 150px
+
+			+xs('.col-lg-8')
+				padding: 50px
+
+			+rt-mb('.col-lg-8')
+				padding: 20px
+			
+			+xs-md('.step1')
+				margin-bottom: 40px
+
+			.number
+				position: relative
+				float: left
+				height: 50px
+				font-style: italic
+				font-size: 40px
+				line-height: 40px
+				margin-right: 10px
+				color: $color1
+			
+			.price-select
+				color: #fff
+				display: block
+				width: 100%
+				font-size: 20px
+				font-weight: bold
+				padding: 10px 15px
+				background: $color1 url(http://style.codeforamerica.org/2/style/images/arrow-chevron-down-gray-light.png) 95% 50% no-repeat
+
+			.price-select:focus
+				outline: none
+
+			.number-of-months-wrapper
+
+				.bar
+					height: 5px
+					display: inline-block
+					width: 60%
+					background-color: rgba(0,0,0,0.1)
+					position: absolute
+					top: 67px
+					left: 27px
+					z-index: 0
+				
+				+xs-md('.bar')
+					top: 47px
+					left: 80px
+
+				.number-of-months-option
+					display: inline-block
+					width: 16%
+					position: relative
+					z-index: 1
+					
+					input[type=radio], label, span
+						cursor: pointer
+
+					input[type=radio]
+						-webkit-appearance: none
+						width: 23px
+						height: 23px
+						-webkit-appearance: none
+						background: url(http://fs.bvodola.webfactional.com/image/9b183350159774022ada7858b59dc7eb1473863068963.png) -15px -17px
+						margin: 6px
+
+					label
+						color: #999
+						width: 35px
+
+						span
+							display: block
+							text-align: center
+							font-size: 16px
+							font-weight: bold
+
+					label:hover
+						color: $color1
+
+					input[type=radio]:checked, input[type=radio]:hover
+						width: 31px
+						height: 35px
+						margin: 0 2px
+						background: url(http://fs.bvodola.webfactional.com/image/9b183350159774022ada7858b59dc7eb1473863068963.png) -49px -14px
+					
+					input[type=radio]:focus
+						outline: 0
+
+					input[type=radio]:checked + span
+						color: $color1
+			
+			// ========
+			// CTA Form
+			// ========
+			.cta-form
+				background: $color1
+				color: $color2
+				border-radius: 4px
+				padding: 30px
+				position: relative
+				top: -80px
+				margin-bottom: -80px
+				height: 310px
+
+				.number
+					color: #fff
+
+				.cta-form-title
+					display: block
+					font-style: italic
+					font-size: 18px
+					font-weight: bold
+					color: #fff
+					line-height: 18px
+
+				.cta-form-subtitle
+					font-style: italic
+				
+				input
+					display: block
+					width: 100%
+					background: transparent
+					border: 0
+					border-bottom: 2px solid $color2
+					height: 40px
+					margin-bottom: 10px
+					color: #fff
+
+				input:focus
+					outline: none
+					border-bottom: 2px solid #fff
+					
+
+				button.cta-button
+					display: block
+					width: 100%
+					background: $color2
+					border: 0
+					border-radius: 5px
+					border-color: $color2
+					font-style: italic
+					font-size: 15px
+					font-weight: bold
+					color: #fff
+					padding: 10px 15px
+					text-transform: uppercase
+					margin-top: 20px
+				
+			
+			// CTA Form (Mobile and Tablet)
+			+xs-md('.cta-form')
+				position: inherit
+				top: 0 
+				margin-bottom: 0
+				height: auto 

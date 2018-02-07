@@ -1,0 +1,14 @@
+#!/bin/sh
+mkdir -p /home/bvodola/webapps/landing/run
+pid=$(/sbin/pidof /home/bvodola/webapps/landing/bin/node)
+if echo "$pid" | grep -q " "; then
+  pid=""
+fi
+if [ -n "$pid" ]; then
+  user=$(ps -p $pid -o user:20 | tail -n 1)
+  if [ $user = "bvodola" ]; then
+    exit 0
+  fi
+fi
+nohup /home/bvodola/webapps/landing/bin/node /home/bvodola/webapps/landing/bundle/main.js > /dev/null 2>&1 &
+/sbin/pidof /home/bvodola/webapps/landing/bin/node > /home/bvodola/webapps/landing/run/node.pid
